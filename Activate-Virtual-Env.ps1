@@ -23,7 +23,14 @@ function Get-VirtualEnvs {
 
 # Check if the script was called with at least one argument
 if ($args.Count -eq 0) {
-    Write-Host "Usage: ActivateVirtualEnv.ps1 <VirtualEnvironmentName>"
+    Write-Host "Usage: ActivateVirtualEnv.ps1 <VirtualEnvironmentName>`n"
+
+    # List available virtual environments
+    Write-Host "Current virtual environments:"
+    foreach ($env in Get-VirtualEnvs) {
+        Write-Host "* $env"
+    }
+
     exit
 }
 
